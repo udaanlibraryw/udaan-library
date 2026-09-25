@@ -1,72 +1,488 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0d6efd"><title>Udaan Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d6efd">
+<title>Udaan Library</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-header{background:linear-gradient(135deg,#0d6efd,#173a8f);color:#fff;padding:22px 18px;border-radius:0 0 24px 24px}
-h1{margin:0;font-size:28px}.sub{opacity:.9;margin-top:5px}.wrap{padding:16px;max-width:650px;margin:auto}
-.card{background:#fff;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 5px 18px #00000010}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:14px;padding:14px;font-size:15px;font-weight:bold;cursor:pointer}
-.blue{background:#0d6efd;color:white}.green{background:#16a34a;color:white}.orange{background:#f59e0b;color:white}.purple{background:#7c3aed;color:white}
-input,select{width:100%;padding:12px;border:1px solid #d8deea;border-radius:10px;margin:6px 0 12px}
-.hidden{display:none}.row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #eee}
-.badge{padding:5px 9px;border-radius:20px;background:#dcfce7;color:#15803d;font-size:12px}
-nav{position:sticky;bottom:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:9px}
-nav button{background:none;border:0;font-size:12px;color:#334155}
-.notice{background:#fff7ed;border-left:4px solid #f59e0b;padding:12px;border-radius:10px}
-</style></head>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f4f6fb;
+ color:#172033;
+ padding-bottom:75px
+}
+header{
+ background:linear-gradient(135deg,#0877ff,#1648a8);
+ color:white;
+ padding:28px 20px;
+ border-radius:0 0 35px 35px
+}
+header h1{margin:0;font-size:29px}
+.sub{font-size:18px;margin-top:8px;opacity:.9}
+.wrap{padding:22px 18px}
+.card{
+ background:white;
+ border-radius:20px;
+ padding:22px;
+ margin-bottom:18px;
+ box-shadow:0 5px 20px #00000012
+}
+h2{margin-top:0}
+input,select{
+ width:100%;
+ padding:14px;
+ margin:8px 0;
+ border:1px solid #ddd;
+ border-radius:12px;
+ font-size:16px;
+ background:white
+}
+button{
+ border:0;
+ border-radius:13px;
+ padding:14px;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer
+}
+.btn{
+ width:100%;
+ color:white;
+ margin-top:10px
+}
+.blue{background:#0877ff}
+.green{background:#16a34a}
+.orange{background:#f59e0b}
+.purple{background:#7c3aed}
+.red{background:#dc2626}
+.grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px
+}
+.row{
+ display:flex;
+ justify-content:space-between;
+ padding:13px 0;
+ border-bottom:1px solid #eee
+}
+.badge{
+ display:inline-block;
+ padding:6px 10px;
+ border-radius:20px;
+ background:#e8f1ff;
+ color:#1261c9
+}
+.hidden{display:none}
+.msg{
+ padding:12px;
+ border-radius:10px;
+ margin-top:10px;
+ background:#fff7df
+}
+.success{background:#dcfce7;color:#166534}
+.error{background:#fee2e2;color:#991b1b}
+nav{
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ background:white;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ border-top:1px solid #ddd;
+ z-index:10
+}
+nav button{
+ background:white;
+ color:#333;
+ border-radius:0;
+ font-size:14px;
+ padding:10px 3px
+}
+.small{font-size:14px;color:#666}
+.notice{
+ background:#fff7ed;
+ border-left:4px solid #f59e0b;
+ padding:14px;
+ border-radius:10px
+}
+</style>
+</head>
+
 <body>
-<header><h1>📚 UDAAN LIBRARY</h1><div class="sub">Study Point • पढ़ाई ही बढ़ाना है</div></header>
+
+<header>
+<h1>📚 UDAAN LIBRARY</h1>
+<div class="sub">Study Point • पढ़ाई ही बढ़ाना है</div>
+</header>
+
 <div class="wrap">
+
+<!-- HOME -->
 <section id="home">
-<div class="card"><h2>स्वागत है 👋</h2><p>शांत वातावरण में बेहतर पढ़ाई करें।</p>
-<p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p><p>📞 8102054098</p></div>
-<div class="grid">
-<button class="btn blue" onclick="show('login')">👤 Student Login</button>
-<button class="btn green" onclick="show('register')">📝 New Registration</button>
-<button class="btn orange" onclick="show('fees')">💰 Fee Status</button>
-<button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
+<div class="card">
+<h2>स्वागत है 👋</h2>
+<p>शांत वातावरण में बेहतर पढ़ाई करें।</p>
+<p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p>
+<p>📞 8102054098</p>
 </div>
-<div class="card"><h3>📢 Latest Notice</h3><div class="notice">Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।</div></div>
+
+<div class="grid">
+<button class="blue" onclick="show('login')">👤 Student Login</button>
+<button class="green" onclick="show('register')">📝 New Registration</button>
+<button class="orange" onclick="show('fees')">💰 Fee Status</button>
+<button class="purple" onclick="show('attendance')">✅ Attendance</button>
+</div>
+
+<div class="card">
+<h2>📢 Latest Notice</h2>
+<div class="notice">
+Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।
+</div>
+</div>
 </section>
 
-<section id="login" class="hidden"><div class="card"><h2>Student Login</h2>
-<input id="loginid" placeholder="Student ID / Mobile Number"><input id="loginpass" type="password" placeholder="Password">
-<button class="btn blue" style="width:100%" onclick="login()">Login</button>
-<p id="loginmsg"></p></div></section>
 
-<section id="register" class="hidden"><div class="card"><h2>New Registration</h2>
-<input id="rname" placeholder="पूरा नाम"><input id="rmobile" placeholder="मोबाइल नंबर">
-<input id="rseat" placeholder="Seat Number"><select id="rplan"><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select>
-<button class="btn green" style="width:100%" onclick="register()">Register</button><p id="regmsg"></p></div></section>
+<!-- LOGIN -->
+<section id="login" class="hidden">
+<div class="card">
+<h2>Student Login</h2>
 
-<section id="dashboard" class="hidden"><div class="card"><h2>Student Dashboard</h2>
-<div class="row"><b>नाम</b><span id="dname"></span></div><div class="row"><b>Student ID</b><span id="did"></span></div>
-<div class="row"><b>Seat No.</b><span id="dseat"></span></div><div class="row"><b>Status</b><span class="badge">Active</span></div>
-</div><div class="grid"><button class="btn orange" onclick="show('fees')">💰 Fees</button><button class="btn purple" onclick="show('attendance')">✅ Attendance</button></div></section>
+<input id="loginid" placeholder="Student ID / Mobile Number">
+<input id="loginpass" type="password" placeholder="Password">
 
-<section id="fees" class="hidden"><div class="card"><h2>💰 Fee Status</h2>
-<div class="row"><b>Monthly Fee</b><span>₹400</span></div><div class="row"><b>Paid</b><span id="paid">₹0</span></div><div class="row"><b>Due</b><span id="due">₹400</span></div>
-<button class="btn blue" style="width:100%" onclick="alert('Payment gateway बाद में जोड़ा जा सकता है।')">Pay Fee</button></div></section>
+<button class="btn blue" onclick="login()">Login</button>
 
-<section id="attendance" class="hidden"><div class="card"><h2>✅ Attendance</h2>
-<div class="row"><b>आज</b><span class="badge">Present</span></div><div class="row"><b>इस महीने</b><span>22 Present / 24 Days</span></div></div></section>
+<div id="loginmsg"></div>
+
+<p class="small">
+नए Student हैं?
+<button style="background:none;color:#0877ff;padding:3px"
+onclick="show('register')">Register करें</button>
+</p>
 </div>
-<nav><button onclick="show('home')">🏠<br>Home</button><button onclick="show('dashboard')">👤<br>Profile</button><button onclick="show('fees')">💰<br>Fee</button><button onclick="show('attendance')">✅<br>Attendance</button></nav>
+</section>
+
+
+<!-- REGISTRATION -->
+<section id="register" class="hidden">
+<div class="card">
+<h2>📝 New Registration</h2>
+
+<input id="rname" placeholder="पूरा नाम">
+<input id="rmobile" type="tel" placeholder="मोबाइल नंबर">
+<input id="rseat" placeholder="Seat Number">
+
+<select id="rplan">
+<option value="Monthly">Monthly</option>
+<option value="Quarterly">Quarterly</option>
+<option value="Yearly">Yearly</option>
+</select>
+
+<input id="rfee" type="number" placeholder="Fee Amount">
+
+<input id="rpass" type="password" placeholder="Login Password">
+
+<button class="btn green" onclick="register()">Register Student</button>
+
+<div id="regmsg"></div>
+</div>
+</section>
+
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="hidden">
+<div class="card">
+<h2>👤 Student Dashboard</h2>
+
+<div class="row">
+<b>नाम</b>
+<span id="dname"></span>
+</div>
+
+<div class="row">
+<b>Student ID</b>
+<span id="did"></span>
+</div>
+
+<div class="row">
+<b>Mobile</b>
+<span id="dmobile"></span>
+</div>
+
+<div class="row">
+<b>Seat No.</b>
+<span id="dseat"></span>
+</div>
+
+<div class="row">
+<b>Fee Plan</b>
+<span id="dplan"></span>
+</div>
+
+<button class="btn blue" onclick="show('fees')">💰 Fee Status</button>
+<button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
+<button class="btn red" onclick="logout()">Logout</button>
+</div>
+</section>
+
+
+<!-- FEES -->
+<section id="fees" class="hidden">
+<div class="card">
+<h2>💰 Fee Status</h2>
+
+<div class="row">
+<b>Student</b>
+<span id="fname">Login Required</span>
+</div>
+
+<div class="row">
+<b>Monthly Fee</b>
+<span id="ffee">-</span>
+</div>
+
+<div class="row">
+<b>Paid Amount</b>
+<span id="fpaid">-</span>
+</div>
+
+<div class="row">
+<b>Pending Amount</b>
+<span id="fpending">-</span>
+</div>
+
+<div class="row">
+<b>Status</b>
+<span id="fstatus" class="badge">-</span>
+</div>
+
+<p class="small">
+Fee information login के बाद दिखाई जाएगी।
+</p>
+</div>
+</section>
+
+
+<!-- ATTENDANCE -->
+<section id="attendance" class="hidden">
+<div class="card">
+<h2>✅ Attendance</h2>
+
+<div class="row">
+<b>Student</b>
+<span id="aname">Login Required</span>
+</div>
+
+<div class="row">
+<b>Total Days</b>
+<span id="atotal">-</span>
+</div>
+
+<div class="row">
+<b>Present</b>
+<span id="apresent">-</span>
+</div>
+
+<div class="row">
+<b>Absent</b>
+<span id="aabsent">-</span>
+</div>
+
+<div class="row">
+<b>Attendance</b>
+<span id="apercent" class="badge">-</span>
+</div>
+</div>
+</section>
+
+</div>
+
+
+<nav>
+<button onclick="show('home')">🏠<br>Home</button>
+<button onclick="show('dashboard')">👤<br>Profile</button>
+<button onclick="show('fees')">💰<br>Fee</button>
+<button onclick="show('attendance')">✅<br>Attendance</button>
+</nav>
+
+
 <script>
-const sections=['home','login','register','dashboard','fees','attendance'];
-let student=JSON.parse(localStorage.getItem('udaan_student')||'null');
-function show(id){sections.forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));window.scrollTo(0,0)}
-function register(){
- let name=document.getElementById('rname').value.trim(), mobile=document.getElementById('rmobile').value.trim(), seat=document.getElementById('rseat').value.trim();
- if(!name||!mobile){document.getElementById('regmsg').textContent='नाम और मोबाइल नंबर भरें।';return}
- student={id:'UL'+Date.now().toString().slice(-5),name,mobile,seat};localStorage.setItem('udaan_student',JSON.stringify(student));
- document.getElementById('regmsg').textContent='Registration सफल! Student ID: '+student.id; setDash();
+
+let student = JSON.parse(localStorage.getItem("udaanStudent") || "null");
+
+const sections=[
+"home",
+"login",
+"register",
+"dashboard",
+"fees",
+"attendance"
+];
+
+function show(id){
+ sections.forEach(x=>{
+   document.getElementById(x).classList.add("hidden");
+ });
+ document.getElementById(id).classList.remove("hidden");
+
+ if(id==="dashboard" || id==="fees" || id==="attendance"){
+   if(!student){
+     show("login");
+     return;
+   }
+   updateDashboard();
+ }
 }
-function login(){if(!student){document.getElementById('loginmsg').textContent='पहले Registration करें।';return}
- let v=document.getElementById('loginid').value.trim(); if(v===student.id||v===student.mobile){setDash();show('dashboard')}else document.getElementById('loginmsg').textContent='Student ID/Mobile सही नहीं है।'}
-function setDash(){if(!student)return;document.getElementById('dname').textContent=student.name;document.getElementById('did').textContent=student.id;document.getElementById('dseat').textContent=student.seat||'-'}
-setDash();
-</script></body></html>
+
+function register(){
+
+ let name=document.getElementById("rname").value.trim();
+ let mobile=document.getElementById("rmobile").value.trim();
+ let seat=document.getElementById("rseat").value.trim();
+ let plan=document.getElementById("rplan").value;
+ let fee=document.getElementById("rfee").value;
+ let pass=document.getElementById("rpass").value;
+
+ if(!name || !mobile || !seat || !fee || !pass){
+   document.getElementById("regmsg").innerHTML=
+   '<div class="msg error">कृपया सभी जानकारी भरें।</div>';
+   return;
+ }
+
+ if(mobile.length < 10){
+   document.getElementById("regmsg").innerHTML=
+   '<div class="msg error">सही मोबाइल नंबर डालें।</div>';
+   return;
+ }
+
+ if(pass.length < 4){
+   document.getElementById("regmsg").innerHTML=
+   '<div class="msg error">Password कम से कम 4 अक्षर का रखें।</div>';
+   return;
+ }
+
+ let id="UDN"+Date.now().toString().slice(-6);
+
+ student={
+   id:id,
+   name:name,
+   mobile:mobile,
+   seat:seat,
+   plan:plan,
+   fee:Number(fee),
+   paid:0,
+   attendance:{
+     total:0,
+     present:0
+   },
+   password:pass
+ };
+
+ localStorage.setItem("udaanStudent",JSON.stringify(student));
+
+ document.getElementById("regmsg").innerHTML=
+ '<div class="msg success">'+
+ '<b>✅ Registration Successful!</b><br><br>'+
+ 'Student ID: <b>'+id+'</b><br>'+
+ 'Password: <b>'+pass+'</b><br><br>'+
+ 'इसे सुरक्षित रखें। अब Student Login करें।'+
+ '</div>';
+
+ document.getElementById("rname").value="";
+ document.getElementById("rmobile").value="";
+ document.getElementById("rseat").value="";
+ document.getElementById("rfee").value="";
+ document.getElementById("rpass").value="";
+}
+
+function login(){
+
+ let id=document.getElementById("loginid").value.trim();
+ let pass=document.getElementById("loginpass").value;
+
+ let saved=JSON.parse(localStorage.getItem("udaanStudent") || "null");
+
+ if(!saved){
+   document.getElementById("loginmsg").innerHTML=
+   '<div class="msg error">पहले Student Registration करें।</div>';
+   return;
+ }
+
+ if((id===saved.id || id===saved.mobile) && pass===saved.password){
+
+   student=saved;
+
+   document.getElementById("loginmsg").innerHTML=
+   '<div class="msg success">✅ Login Successful</div>';
+
+   setTimeout(()=>{
+     updateDashboard();
+     show("dashboard");
+   },500);
+
+ }else{
+
+   document.getElementById("loginmsg").innerHTML=
+   '<div class="msg error">❌ Student ID/Mobile या Password गलत है।</div>';
+ }
+}
+
+function updateDashboard(){
+
+ if(!student) return;
+
+ document.getElementById("dname").innerText=student.name;
+ document.getElementById("did").innerText=student.id;
+ document.getElementById("dmobile").innerText=student.mobile;
+ document.getElementById("dseat").innerText=student.seat;
+ document.getElementById("dplan").innerText=student.plan;
+
+ document.getElementById("fname").innerText=student.name;
+ document.getElementById("ffee").innerText="₹"+student.fee;
+ document.getElementById("fpaid").innerText="₹"+student.paid;
+
+ let pending=Math.max(0,student.fee-student.paid);
+
+ document.getElementById("fpending").innerText="₹"+pending;
+
+ document.getElementById("fstatus").innerText=
+ pending===0 ? "Paid" : "Pending";
+
+ document.getElementById("aname").innerText=student.name;
+
+ let total=student.attendance.total;
+ let present=student.attendance.present;
+ let absent=Math.max(0,total-present);
+
+ document.getElementById("atotal").innerText=total;
+ document.getElementById("apresent").innerText=present;
+ document.getElementById("aabsent").innerText=absent;
+
+ let percent=total>0 ? Math.round((present/total)*100) : 0;
+
+ document.getElementById("apercent").innerText=
+ percent+"%";
+}
+
+function logout(){
+
+ student=null;
+
+ document.getElementById("loginid").value="";
+ document.getElementById("loginpass").value="";
+
+ show("login");
+}
+
+show("home");
+
+</script>
+
+</body>
+</html>
