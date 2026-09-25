@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d6efd"><title>Udaan Library</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
+header{background:linear-gradient(135deg,#0d6efd,#173a8f);color:#fff;padding:22px 18px;border-radius:0 0 24px 24px}
+h1{margin:0;font-size:28px}.sub{opacity:.9;margin-top:5px}.wrap{padding:16px;max-width:650px;margin:auto}
+.card{background:#fff;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 5px 18px #00000010}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:14px;padding:14px;font-size:15px;font-weight:bold;cursor:pointer}
+.blue{background:#0d6efd;color:white}.green{background:#16a34a;color:white}.orange{background:#f59e0b;color:white}.purple{background:#7c3aed;color:white}
+input,select{width:100%;padding:12px;border:1px solid #d8deea;border-radius:10px;margin:6px 0 12px}
+.hidden{display:none}.row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #eee}
+.badge{padding:5px 9px;border-radius:20px;background:#dcfce7;color:#15803d;font-size:12px}
+nav{position:sticky;bottom:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:9px}
+nav button{background:none;border:0;font-size:12px;color:#334155}
+.notice{background:#fff7ed;border-left:4px solid #f59e0b;padding:12px;border-radius:10px}
+</style></head>
+<body>
+<header><h1>📚 UDAAN LIBRARY</h1><div class="sub">Study Point • पढ़ाई ही बढ़ाना है</div></header>
+<div class="wrap">
+<section id="home">
+<div class="card"><h2>स्वागत है 👋</h2><p>शांत वातावरण में बेहतर पढ़ाई करें।</p>
+<p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p><p>📞 8102054098</p></div>
+<div class="grid">
+<button class="btn blue" onclick="show('login')">👤 Student Login</button>
+<button class="btn green" onclick="show('register')">📝 New Registration</button>
+<button class="btn orange" onclick="show('fees')">💰 Fee Status</button>
+<button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
+</div>
+<div class="card"><h3>📢 Latest Notice</h3><div class="notice">Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।</div></div>
+</section>
+
+<section id="login" class="hidden"><div class="card"><h2>Student Login</h2>
+<input id="loginid" placeholder="Student ID / Mobile Number"><input id="loginpass" type="password" placeholder="Password">
+<button class="btn blue" style="width:100%" onclick="login()">Login</button>
+<p id="loginmsg"></p></div></section>
+
+<section id="register" class="hidden"><div class="card"><h2>New Registration</h2>
+<input id="rname" placeholder="पूरा नाम"><input id="rmobile" placeholder="मोबाइल नंबर">
+<input id="rseat" placeholder="Seat Number"><select id="rplan"><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select>
+<button class="btn green" style="width:100%" onclick="register()">Register</button><p id="regmsg"></p></div></section>
+
+<section id="dashboard" class="hidden"><div class="card"><h2>Student Dashboard</h2>
+<div class="row"><b>नाम</b><span id="dname"></span></div><div class="row"><b>Student ID</b><span id="did"></span></div>
+<div class="row"><b>Seat No.</b><span id="dseat"></span></div><div class="row"><b>Status</b><span class="badge">Active</span></div>
+</div><div class="grid"><button class="btn orange" onclick="show('fees')">💰 Fees</button><button class="btn purple" onclick="show('attendance')">✅ Attendance</button></div></section>
+
+<section id="fees" class="hidden"><div class="card"><h2>💰 Fee Status</h2>
+<div class="row"><b>Monthly Fee</b><span>₹400</span></div><div class="row"><b>Paid</b><span id="paid">₹0</span></div><div class="row"><b>Due</b><span id="due">₹400</span></div>
+<button class="btn blue" style="width:100%" onclick="alert('Payment gateway बाद में जोड़ा जा सकता है।')">Pay Fee</button></div></section>
+
+<section id="attendance" class="hidden"><div class="card"><h2>✅ Attendance</h2>
+<div class="row"><b>आज</b><span class="badge">Present</span></div><div class="row"><b>इस महीने</b><span>22 Present / 24 Days</span></div></div></section>
+</div>
+<nav><button onclick="show('home')">🏠<br>Home</button><button onclick="show('dashboard')">👤<br>Profile</button><button onclick="show('fees')">💰<br>Fee</button><button onclick="show('attendance')">✅<br>Attendance</button></nav>
+<script>
+const sections=['home','login','register','dashboard','fees','attendance'];
+let student=JSON.parse(localStorage.getItem('udaan_student')||'null');
+function show(id){sections.forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));window.scrollTo(0,0)}
+function register(){
+ let name=document.getElementById('rname').value.trim(), mobile=document.getElementById('rmobile').value.trim(), seat=document.getElementById('rseat').value.trim();
+ if(!name||!mobile){document.getElementById('regmsg').textContent='नाम और मोबाइल नंबर भरें।';return}
+ student={id:'UL'+Date.now().toString().slice(-5),name,mobile,seat};localStorage.setItem('udaan_student',JSON.stringify(student));
+ document.getElementById('regmsg').textContent='Registration सफल! Student ID: '+student.id; setDash();
+}
+function login(){if(!student){document.getElementById('loginmsg').textContent='पहले Registration करें।';return}
+ let v=document.getElementById('loginid').value.trim(); if(v===student.id||v===student.mobile){setDash();show('dashboard')}else document.getElementById('loginmsg').textContent='Student ID/Mobile सही नहीं है।'}
+function setDash(){if(!student)return;document.getElementById('dname').textContent=student.name;document.getElementById('did').textContent=student.id;document.getElementById('dseat').textContent=student.seat||'-'}
+setDash();
+</script></body></html>
