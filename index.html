@@ -2,479 +2,589 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0d6efd">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0877ff">
 <title>Udaan Library</title>
 
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f4f6fb;
- color:#172033;
- padding-bottom:75px
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f6fb;
+  color:#172033;
+  padding-bottom:75px
 }
 header{
- background:linear-gradient(135deg,#0877ff,#1648a8);
- color:white;
- padding:28px 20px;
- border-radius:0 0 35px 35px
+  background:linear-gradient(135deg,#0877ff,#174bb5);
+  color:white;
+  padding:28px 20px;
+  border-radius:0 0 35px 35px
 }
 header h1{margin:0;font-size:29px}
 .sub{font-size:18px;margin-top:8px;opacity:.9}
 .wrap{padding:22px 18px}
 .card{
- background:white;
- border-radius:20px;
- padding:22px;
- margin-bottom:18px;
- box-shadow:0 5px 20px #00000012
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 5px 20px #00000012
 }
 h2{margin-top:0}
 input,select{
- width:100%;
- padding:14px;
- margin:8px 0;
- border:1px solid #ddd;
- border-radius:12px;
- font-size:16px;
- background:white
+  width:100%;
+  padding:14px;
+  margin:7px 0;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+  background:white
 }
 button{
- border:0;
- border-radius:13px;
- padding:14px;
- font-size:17px;
- font-weight:bold;
- cursor:pointer
+  border:0;
+  border-radius:13px;
+  padding:14px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer
 }
-.btn{
- width:100%;
- color:white;
- margin-top:10px
-}
+.btn{width:100%;color:white;margin-top:10px}
 .blue{background:#0877ff}
 .green{background:#16a34a}
 .orange{background:#f59e0b}
 .purple{background:#7c3aed}
 .red{background:#dc2626}
 .grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
 }
+.hidden{display:none!important}
 .row{
- display:flex;
- justify-content:space-between;
- padding:13px 0;
- border-bottom:1px solid #eee
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:12px 0;
+  border-bottom:1px solid #eee
 }
 .badge{
- display:inline-block;
- padding:6px 10px;
- border-radius:20px;
- background:#e8f1ff;
- color:#1261c9
+  padding:6px 10px;
+  border-radius:20px;
+  background:#e8f1ff;
+  color:#0877ff
 }
-.hidden{display:none}
-.msg{
- padding:12px;
- border-radius:10px;
- margin-top:10px;
- background:#fff7df
+.notice{
+  background:#fff7ed;
+  border-left:5px solid #f59e0b;
+  padding:15px;
+  border-radius:12px
 }
-.success{background:#dcfce7;color:#166534}
-.error{background:#fee2e2;color:#991b1b}
 nav{
- position:fixed;
- bottom:0;
- left:0;
- right:0;
- background:white;
- display:grid;
- grid-template-columns:repeat(4,1fr);
- border-top:1px solid #ddd;
- z-index:10
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  box-shadow:0 -3px 15px #0002;
+  z-index:10
 }
 nav button{
- background:white;
- color:#333;
- border-radius:0;
- font-size:14px;
- padding:10px 3px
+  background:white;
+  color:#333;
+  border-radius:0;
+  font-size:14px;
+  padding:10px 4px
 }
-.small{font-size:14px;color:#666}
-.notice{
- background:#fff7ed;
- border-left:4px solid #f59e0b;
- padding:14px;
- border-radius:10px
+nav span{display:block;font-size:22px;margin-bottom:3px}
+.center{text-align:center}
+.success{color:#15803d;font-weight:bold}
+.error{color:#dc2626;font-weight:bold}
+.stat{
+  padding:15px;
+  border-radius:15px;
+  color:white;
+  text-align:center
 }
+.stat b{font-size:25px;display:block}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>📚 UDAAN LIBRARY</h1>
-<div class="sub">Study Point • पढ़ाई ही बढ़ाना है</div>
+  <h1>📚 UDAAN LIBRARY</h1>
+  <div class="sub">Study Point • पढ़ाई ही बढ़ाना है</div>
 </header>
 
 <div class="wrap">
 
 <!-- HOME -->
 <section id="home">
-<div class="card">
-<h2>स्वागत है 👋</h2>
-<p>शांत वातावरण में बेहतर पढ़ाई करें।</p>
-<p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p>
-<p>📞 8102054098</p>
-</div>
+  <div class="card">
+    <h2>स्वागत है 👋</h2>
+    <p>शांत वातावरण में बेहतर पढ़ाई करें।</p>
+    <p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p>
+    <p>📞 8102054098</p>
+  </div>
 
-<div class="grid">
-<button class="blue" onclick="show('login')">👤 Student Login</button>
-<button class="green" onclick="show('register')">📝 New Registration</button>
-<button class="orange" onclick="show('fees')">💰 Fee Status</button>
-<button class="purple" onclick="show('attendance')">✅ Attendance</button>
-</div>
+  <div class="grid">
+    <button class="btn blue" onclick="show('login')">👤 Student Login</button>
+    <button class="btn green" onclick="show('register')">📝 New Registration</button>
+    <button class="btn orange" onclick="show('fees')">💰 Fee Status</button>
+    <button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
+  </div>
 
-<div class="card">
-<h2>📢 Latest Notice</h2>
-<div class="notice">
-Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।
-</div>
-</div>
+  <div class="card">
+    <h2>📢 Latest Notice</h2>
+    <div class="notice">
+      Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।
+    </div>
+  </div>
+</section>
+
+
+<!-- REGISTER -->
+<section id="register" class="hidden">
+  <div class="card">
+    <h2>📝 New Registration</h2>
+
+    <input id="rname" placeholder="पूरा नाम">
+    <input id="rmobile" placeholder="मोबाइल नंबर" type="tel">
+    <input id="rseat" placeholder="Seat Number" type="number">
+
+    <select id="rplan">
+      <option value="Monthly">Monthly</option>
+      <option value="3 Months">3 Months</option>
+      <option value="6 Months">6 Months</option>
+      <option value="Yearly">Yearly</option>
+    </select>
+
+    <button class="btn green" onclick="register()">Register</button>
+    <p id="regmsg"></p>
+  </div>
 </section>
 
 
 <!-- LOGIN -->
 <section id="login" class="hidden">
-<div class="card">
-<h2>Student Login</h2>
+  <div class="card">
+    <h2>🔐 Student Login</h2>
 
-<input id="loginid" placeholder="Student ID / Mobile Number">
-<input id="loginpass" type="password" placeholder="Password">
+    <input id="loginid" placeholder="Student ID">
+    <input id="loginmobile" placeholder="Mobile Number" type="tel">
 
-<button class="btn blue" onclick="login()">Login</button>
+    <button class="btn blue" onclick="login()">Login</button>
+    <p id="loginmsg"></p>
 
-<div id="loginmsg"></div>
-
-<p class="small">
-नए Student हैं?
-<button style="background:none;color:#0877ff;padding:3px"
-onclick="show('register')">Register करें</button>
-</p>
-</div>
-</section>
-
-
-<!-- REGISTRATION -->
-<section id="register" class="hidden">
-<div class="card">
-<h2>📝 New Registration</h2>
-
-<input id="rname" placeholder="पूरा नाम">
-<input id="rmobile" type="tel" placeholder="मोबाइल नंबर">
-<input id="rseat" placeholder="Seat Number">
-
-<select id="rplan">
-<option value="Monthly">Monthly</option>
-<option value="Quarterly">Quarterly</option>
-<option value="Yearly">Yearly</option>
-</select>
-
-<input id="rfee" type="number" placeholder="Fee Amount">
-
-<input id="rpass" type="password" placeholder="Login Password">
-
-<button class="btn green" onclick="register()">Register Student</button>
-
-<div id="regmsg"></div>
-</div>
+    <hr>
+    <p>पहली बार आए हैं?</p>
+    <button class="btn green" onclick="show('register')">
+      📝 New Registration
+    </button>
+  </div>
 </section>
 
 
 <!-- DASHBOARD -->
 <section id="dashboard" class="hidden">
-<div class="card">
-<h2>👤 Student Dashboard</h2>
 
-<div class="row">
-<b>नाम</b>
-<span id="dname"></span>
-</div>
+  <div class="card">
+    <h2>👤 Student Dashboard</h2>
 
-<div class="row">
-<b>Student ID</b>
-<span id="did"></span>
-</div>
+    <div class="row">
+      <b>नाम</b>
+      <span id="dname"></span>
+    </div>
 
-<div class="row">
-<b>Mobile</b>
-<span id="dmobile"></span>
-</div>
+    <div class="row">
+      <b>Student ID</b>
+      <span id="did" class="badge"></span>
+    </div>
 
-<div class="row">
-<b>Seat No.</b>
-<span id="dseat"></span>
-</div>
+    <div class="row">
+      <b>Mobile</b>
+      <span id="dmobile"></span>
+    </div>
 
-<div class="row">
-<b>Fee Plan</b>
-<span id="dplan"></span>
-</div>
+    <div class="row">
+      <b>Seat No.</b>
+      <span id="dseat"></span>
+    </div>
 
-<button class="btn blue" onclick="show('fees')">💰 Fee Status</button>
-<button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
-<button class="btn red" onclick="logout()">Logout</button>
-</div>
+    <div class="row">
+      <b>Plan</b>
+      <span id="dplan"></span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="stat" style="background:#0877ff">
+      <b id="dashPresent">0</b>
+      Present
+    </div>
+
+    <div class="stat" style="background:#16a34a">
+      <b id="dashFee">Pending</b>
+      Fee
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="btn blue" onclick="show('fees')">💰 Fee Status</button>
+    <button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
+    <button class="btn red" onclick="logout()">🚪 Logout</button>
+  </div>
 </section>
 
 
 <!-- FEES -->
 <section id="fees" class="hidden">
-<div class="card">
-<h2>💰 Fee Status</h2>
+  <div class="card">
+    <h2>💰 Fee Status</h2>
 
-<div class="row">
-<b>Student</b>
-<span id="fname">Login Required</span>
-</div>
+    <div class="row">
+      <b>Student</b>
+      <span id="fname">Login करें</span>
+    </div>
 
-<div class="row">
-<b>Monthly Fee</b>
-<span id="ffee">-</span>
-</div>
+    <div class="row">
+      <b>Monthly Fee</b>
+      <span>₹1,000</span>
+    </div>
 
-<div class="row">
-<b>Paid Amount</b>
-<span id="fpaid">-</span>
-</div>
+    <div class="row">
+      <b>Status</b>
+      <span id="feestatus" class="badge">Pending</span>
+    </div>
 
-<div class="row">
-<b>Pending Amount</b>
-<span id="fpending">-</span>
-</div>
-
-<div class="row">
-<b>Status</b>
-<span id="fstatus" class="badge">-</span>
-</div>
-
-<p class="small">
-Fee information login के बाद दिखाई जाएगी।
-</p>
-</div>
+    <button class="btn green" onclick="markFeePaid()">
+      ✅ Fee Paid
+    </button>
+  </div>
 </section>
 
 
 <!-- ATTENDANCE -->
 <section id="attendance" class="hidden">
-<div class="card">
-<h2>✅ Attendance</h2>
+  <div class="card">
+    <h2>✅ Attendance</h2>
 
-<div class="row">
-<b>Student</b>
-<span id="aname">Login Required</span>
-</div>
+    <div class="row">
+      <b>Total Days</b>
+      <span id="atotal">0</span>
+    </div>
 
-<div class="row">
-<b>Total Days</b>
-<span id="atotal">-</span>
-</div>
+    <div class="row">
+      <b>Present</b>
+      <span id="apresent">0</span>
+    </div>
 
-<div class="row">
-<b>Present</b>
-<span id="apresent">-</span>
-</div>
+    <div class="row">
+      <b>Absent</b>
+      <span id="aabsent">0</span>
+    </div>
 
-<div class="row">
-<b>Absent</b>
-<span id="aabsent">-</span>
-</div>
+    <div class="row">
+      <b>Percentage</b>
+      <span id="apercent">0%</span>
+    </div>
 
-<div class="row">
-<b>Attendance</b>
-<span id="apercent" class="badge">-</span>
-</div>
-</div>
+    <button class="btn green" onclick="markPresent()">
+      🟢 आज Present
+    </button>
+  </div>
 </section>
 
 </div>
 
 
+<!-- BOTTOM NAV -->
 <nav>
-<button onclick="show('home')">🏠<br>Home</button>
-<button onclick="show('dashboard')">👤<br>Profile</button>
-<button onclick="show('fees')">💰<br>Fee</button>
-<button onclick="show('attendance')">✅<br>Attendance</button>
+  <button onclick="show('home')">
+    <span>🏠</span>Home
+  </button>
+
+  <button onclick="openProfile()">
+    <span>👤</span>Profile
+  </button>
+
+  <button onclick="show('fees')">
+    <span>💰</span>Fee
+  </button>
+
+  <button onclick="show('attendance')">
+    <span>✅</span>Attendance
+  </button>
 </nav>
 
 
 <script>
 
-let student = JSON.parse(localStorage.getItem("udaanStudent") || "null");
-
 const sections=[
-"home",
-"login",
-"register",
-"dashboard",
-"fees",
-"attendance"
+  "home",
+  "login",
+  "register",
+  "dashboard",
+  "fees",
+  "attendance"
 ];
 
-function show(id){
- sections.forEach(x=>{
-   document.getElementById(x).classList.add("hidden");
- });
- document.getElementById(id).classList.remove("hidden");
+let student=JSON.parse(localStorage.getItem("udaanStudent") || "null");
 
- if(id==="dashboard" || id==="fees" || id==="attendance"){
-   if(!student){
-     show("login");
-     return;
-   }
-   updateDashboard();
- }
+
+function show(id){
+
+  sections.forEach(x=>{
+    document.getElementById(x).classList.add("hidden");
+  });
+
+  document.getElementById(id).classList.remove("hidden");
+
+  window.scrollTo(0,0);
+
+  if(id==="dashboard") setDashboard();
+  if(id==="fees") setFee();
+  if(id==="attendance") setAttendance();
 }
+
 
 function register(){
 
- let name=document.getElementById("rname").value.trim();
- let mobile=document.getElementById("rmobile").value.trim();
- let seat=document.getElementById("rseat").value.trim();
- let plan=document.getElementById("rplan").value;
- let fee=document.getElementById("rfee").value;
- let pass=document.getElementById("rpass").value;
+  let name=document.getElementById("rname").value.trim();
+  let mobile=document.getElementById("rmobile").value.trim();
+  let seat=document.getElementById("rseat").value.trim();
+  let plan=document.getElementById("rplan").value;
 
- if(!name || !mobile || !seat || !fee || !pass){
-   document.getElementById("regmsg").innerHTML=
-   '<div class="msg error">कृपया सभी जानकारी भरें।</div>';
-   return;
- }
+  if(!name || !mobile || !seat){
 
- if(mobile.length < 10){
-   document.getElementById("regmsg").innerHTML=
-   '<div class="msg error">सही मोबाइल नंबर डालें।</div>';
-   return;
- }
+    document.getElementById("regmsg").innerHTML=
+      '<span class="error">कृपया सभी जानकारी भरें।</span>';
 
- if(pass.length < 4){
-   document.getElementById("regmsg").innerHTML=
-   '<div class="msg error">Password कम से कम 4 अक्षर का रखें।</div>';
-   return;
- }
+    return;
+  }
 
- let id="UDN"+Date.now().toString().slice(-6);
+  if(mobile.length!==10){
 
- student={
-   id:id,
-   name:name,
-   mobile:mobile,
-   seat:seat,
-   plan:plan,
-   fee:Number(fee),
-   paid:0,
-   attendance:{
-     total:0,
-     present:0
-   },
-   password:pass
- };
+    document.getElementById("regmsg").innerHTML=
+      '<span class="error">सही 10 अंकों का मोबाइल नंबर डालें।</span>';
 
- localStorage.setItem("udaanStudent",JSON.stringify(student));
+    return;
+  }
 
- document.getElementById("regmsg").innerHTML=
- '<div class="msg success">'+
- '<b>✅ Registration Successful!</b><br><br>'+
- 'Student ID: <b>'+id+'</b><br>'+
- 'Password: <b>'+pass+'</b><br><br>'+
- 'इसे सुरक्षित रखें। अब Student Login करें।'+
- '</div>';
+  let id="UL"+Math.floor(10000+Math.random()*90000);
 
- document.getElementById("rname").value="";
- document.getElementById("rmobile").value="";
- document.getElementById("rseat").value="";
- document.getElementById("rfee").value="";
- document.getElementById("rpass").value="";
+  student={
+    id:id,
+    name:name,
+    mobile:mobile,
+    seat:seat,
+    plan:plan,
+    fee:"Pending",
+    attendance:{
+      total:0,
+      present:0,
+      lastDate:""
+    }
+  };
+
+  localStorage.setItem(
+    "udaanStudent",
+    JSON.stringify(student)
+  );
+
+  document.getElementById("regmsg").innerHTML=
+    '<span class="success">Registration सफल! Student ID: '+id+'</span>';
+
+  setTimeout(()=>{
+    show("dashboard");
+  },1000);
 }
+
 
 function login(){
 
- let id=document.getElementById("loginid").value.trim();
- let pass=document.getElementById("loginpass").value;
+  let id=document.getElementById("loginid").value.trim();
+  let mobile=document.getElementById("loginmobile").value.trim();
 
- let saved=JSON.parse(localStorage.getItem("udaanStudent") || "null");
+  if(!student){
 
- if(!saved){
-   document.getElementById("loginmsg").innerHTML=
-   '<div class="msg error">पहले Student Registration करें।</div>';
-   return;
- }
+    document.getElementById("loginmsg").innerHTML=
+      '<span class="error">पहले Registration करें।</span>';
 
- if((id===saved.id || id===saved.mobile) && pass===saved.password){
+    return;
+  }
 
-   student=saved;
+  if(
+    id.toUpperCase()===student.id.toUpperCase() &&
+    mobile===student.mobile
+  ){
 
-   document.getElementById("loginmsg").innerHTML=
-   '<div class="msg success">✅ Login Successful</div>';
+    document.getElementById("loginmsg").innerHTML=
+      '<span class="success">Login सफल!</span>';
 
-   setTimeout(()=>{
-     updateDashboard();
-     show("dashboard");
-   },500);
+    setTimeout(()=>{
+      show("dashboard");
+    },500);
 
- }else{
+  }else{
 
-   document.getElementById("loginmsg").innerHTML=
-   '<div class="msg error">❌ Student ID/Mobile या Password गलत है।</div>';
- }
+    document.getElementById("loginmsg").innerHTML=
+      '<span class="error">Student ID या Mobile गलत है।</span>';
+  }
 }
 
-function updateDashboard(){
 
- if(!student) return;
+function setDashboard(){
 
- document.getElementById("dname").innerText=student.name;
- document.getElementById("did").innerText=student.id;
- document.getElementById("dmobile").innerText=student.mobile;
- document.getElementById("dseat").innerText=student.seat;
- document.getElementById("dplan").innerText=student.plan;
+  if(!student){
+    show("login");
+    return;
+  }
 
- document.getElementById("fname").innerText=student.name;
- document.getElementById("ffee").innerText="₹"+student.fee;
- document.getElementById("fpaid").innerText="₹"+student.paid;
+  document.getElementById("dname").innerText=student.name;
+  document.getElementById("did").innerText=student.id;
+  document.getElementById("dmobile").innerText=student.mobile;
+  document.getElementById("dseat").innerText=student.seat;
+  document.getElementById("dplan").innerText=student.plan;
 
- let pending=Math.max(0,student.fee-student.paid);
+  document.getElementById("dashPresent").innerText=
+    student.attendance.present;
 
- document.getElementById("fpending").innerText="₹"+pending;
-
- document.getElementById("fstatus").innerText=
- pending===0 ? "Paid" : "Pending";
-
- document.getElementById("aname").innerText=student.name;
-
- let total=student.attendance.total;
- let present=student.attendance.present;
- let absent=Math.max(0,total-present);
-
- document.getElementById("atotal").innerText=total;
- document.getElementById("apresent").innerText=present;
- document.getElementById("aabsent").innerText=absent;
-
- let percent=total>0 ? Math.round((present/total)*100) : 0;
-
- document.getElementById("apercent").innerText=
- percent+"%";
+  document.getElementById("dashFee").innerText=
+    student.fee;
 }
+
+
+function setFee(){
+
+  if(!student){
+
+    document.getElementById("fname").innerText="Login करें";
+    return;
+  }
+
+  document.getElementById("fname").innerText=student.name;
+  document.getElementById("feestatus").innerText=student.fee;
+}
+
+
+function markFeePaid(){
+
+  if(!student){
+
+    alert("पहले Student Login करें।");
+    show("login");
+    return;
+  }
+
+  student.fee="Paid";
+
+  save();
+
+  setFee();
+  setDashboard();
+
+  alert("Fee Paid Successfully ✅");
+}
+
+
+function markPresent(){
+
+  if(!student){
+
+    alert("पहले Student Login करें।");
+    show("login");
+    return;
+  }
+
+  let today=new Date().toISOString().slice(0,10);
+
+  if(student.attendance.lastDate===today){
+
+    alert("आज की Attendance पहले ही लग चुकी है।");
+    return;
+  }
+
+  student.attendance.total++;
+  student.attendance.present++;
+  student.attendance.lastDate=today;
+
+  save();
+
+  setAttendance();
+  setDashboard();
+
+  alert("आज की Attendance लग गई ✅");
+}
+
+
+function setAttendance(){
+
+  if(!student){
+
+    document.getElementById("atotal").innerText=0;
+    document.getElementById("apresent").innerText=0;
+    document.getElementById("aabsent").innerText=0;
+    document.getElementById("apercent").innerText="0%";
+
+    return;
+  }
+
+  let total=student.attendance.total;
+  let present=student.attendance.present;
+  let absent=Math.max(0,total-present);
+
+  let percent=total>0
+    ? Math.round((present/total)*100)
+    : 0;
+
+  document.getElementById("atotal").innerText=total;
+  document.getElementById("apresent").innerText=present;
+  document.getElementById("aabsent").innerText=absent;
+  document.getElementById("apercent").innerText=percent+"%";
+}
+
+
+function openProfile(){
+
+  if(student){
+    show("dashboard");
+  }else{
+    show("login");
+  }
+}
+
 
 function logout(){
 
- student=null;
+  show("home");
 
- document.getElementById("loginid").value="";
+  alert("Logout हो गया।");
+}
+
+
+function save(){
+
+  localStorage.setItem(
+    "udaanStudent",
+    JSON.stringify(student)
+  );
+}
+
+w
+if(student){
+  setDashboard();
+}
+
+show("home");
+
+</script>
+
+</body>
+</html>lementById("loginid").value="";
  document.getElementById("loginpass").value="";
 
  show("login");
