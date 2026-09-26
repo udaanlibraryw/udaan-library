@@ -652,7 +652,24 @@ function openStudentList(){
   );
 }
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDcDKArpsj9ooMZUFysTYYz15p2PLgKL9E",
+  authDomain: "udaan-library.firebaseapp.com",
+  projectId: "udaan-library",
+  storageBucket: "udaan-library.firebasestorage.app",
+  messagingSenderId: "353170974204",
+  appId: "1:353170974204:web:caedc9462c1701eb407e79"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+</script>
 
 </body>
 </html>
