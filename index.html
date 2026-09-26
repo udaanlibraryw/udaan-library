@@ -599,7 +599,16 @@ function openAdmin(){
 }
 
 function openStudentManagement(){
-  alert("Student Management खुल गया ✅");
+if(!student){
+  alert("पहले Student Registration करें");
+  return;
+}
+
+alert("Student: "+student.name+
+"\nID: "+student.id+
+"\nMobile: "+student.mobile+
+"\nSeat: "+student.seat+
+"\nPlan: "+student.plan);
 }
 </script>
 
