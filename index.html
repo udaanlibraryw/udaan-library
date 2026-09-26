@@ -304,7 +304,7 @@ nav span{display:block;font-size:22px;margin-bottom:3px}
 
     <p>Udaan Library Admin</p>
 
-<button class="btn blue" onclick="openStudentManagement()">👨‍🎓 Student Management</button>    <button class="btn green" onclick="alert('Fee Management खुल गया ✅')">💰 Fee Management</button>
+<button class="btn blue" onclick="openStudentManagement()">👨‍🎓 Student Management</button>    <button class="btn green" onclick="openFeeManagement()">💰 Fee Management</button>
 <button class="btn orange" onclick="show('attendance')">✅ Attendance Management</button>
     <button class="btn purple">📋 Student List</button>
     <button class="btn blue" onclick="alert('Student Management खुल गया ✅')">👨‍🎓 Student Management</button>
@@ -610,7 +610,27 @@ alert("Student: "+student.name+
 "\nSeat: "+student.seat+
 "\nPlan: "+student.plan);
 }
+  
+
+function openFeeManagement(){
+
+  if(!student){
+    alert("पहले Student Registration करें");
+    return;
+  }
+
+  alert(
+    "💰 Fee Management\n\n"+
+    "Student: "+student.name+
+    "\nID: "+student.id+
+    "\nPlan: "+student.plan+
+    "\nFee Status: "+(student.feePaid ? "Paid ✅" : "Pending ⏳")
+  );
+
+}
+
 </script>
+
 
 </body>
 </html>
