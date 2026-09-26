@@ -628,7 +628,22 @@ function openFeeManagement(){
   );
 
 }
+function openStudentList(){
+  if(!student){
+    alert("अभी कोई Student Registered नहीं है");
+    return;
+  }
 
+  alert(
+    "📋 Student List\n\n"+
+    "Name: "+student.name+
+    "\nID: "+student.id+
+    "\nMobile: "+student.mobile+
+    "\nSeat: "+student.seat+
+    "\nPlan: "+student.plan+
+    "\nFee: "+student.fee
+  );
+}
 </script>
 
 
