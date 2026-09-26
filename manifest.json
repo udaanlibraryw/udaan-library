@@ -1,13 +1,14 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
   "name": "Udaan Library",
-  "orientation": "any",
-  "scope": "/",
   "short_name": "Udaan Library",
-  "start_url": "/",
-  "theme_color": "#0877ff",
+  "id": "udaan-library",
   "description": "Udaan Library - शांत और सुविधाजनक Study Point",
-  "id": "udaan-library"
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#0877ff",
+  "dir": "ltr",
+  "lang": "hi"
 }
