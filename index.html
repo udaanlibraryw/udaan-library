@@ -297,7 +297,19 @@ nav span{display:block;font-size:22px;margin-bottom:3px}
     </button>
   </div>
 </section>
+<!-- ADMIN -->
+<section id="admin" class="hidden">
+  <div class="card">
+    <h2>🔐 Admin Panel</h2>
 
+    <p>Udaan Library Admin</p>
+
+    <button class="btn blue">👨‍🎓 Student Management</button>
+    <button class="btn green">💰 Fee Management</button>
+    <button class="btn orange">✅ Attendance Management</button>
+    <button class="btn purple">📋 Student List</button>
+  </div>
+</section>
 </div>
 
 
@@ -317,7 +329,9 @@ nav span{display:block;font-size:22px;margin-bottom:3px}
 
   <button onclick="show('attendance')">
     <span>✅</span>Attendance
-  </button>
+  </button><button onclick="show('admin')">
+  <span>🔐</span>Admin
+</button>
 </nav>
 
 
@@ -329,7 +343,8 @@ const sections=[
   "register",
   "dashboard",
   "fees",
-  "attendance"
+  "attendance",
+  "admin"
 ];
 
 let student=JSON.parse(localStorage.getItem("udaanStudent") || "null");
