@@ -595,8 +595,15 @@ if(student){
 
 show("home");
 function openAdmin(){
-  show("admin");
+  let password=prompt("🔐 Admin Password डालें");
+
+  if(password==="123456"){
+    show("admin");
+  }else{
+    alert("❌ गलत Password");
+  }
 }
+
 
 function openStudentManagement(){
 if(!student){
