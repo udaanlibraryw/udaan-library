@@ -200,28 +200,7 @@ function addNotice(){
  document.getElementById('noticeText').value='';
 }
 
-function login(){
- const name=document.getElementById('loginId').value.trim()||'Student';
- document.getElementById('studentName').textContent=name;
- document.getElementById('profileName').textContent=name;
- show('dashboard');
-}
-if('serviceWorker' in navigator){
- window.addEventListener('load',()=>navigator.serviceWorker.register('pwabuilder-sw.js').catch(()=>{}));
-}
-</script><script type="module">
-  
-  import { initializeApp } from
-    "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
-  import {
-    getDatabase,
-    ref,
-    set,
-    push,
-    get,
-    onValue
-  } from
     "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
 
   const firebaseConfig = {
@@ -236,7 +215,55 @@ if('serviceWorker' in navigator){
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
+window.login = async function () {
 
+  const mobile = document.getElementById("loginId").value.trim();
+
+  if (!mobile) {
+    alert("कृपया मोबाइल नंबर डालें");
+    return;
+  }
+
+  try {
+
+    const snapshot = await get(ref(db, "students"));
+
+    if (!snapshot.exists()) {
+      alert("कोई Student Database में नहीं मिला");
+      return;
+    }
+
+    const students = snapshot.val();
+    let student = null;
+
+    for (const id in students) {
+      if (String(students[id].mobile) === String(mobile)) {
+        student = students[id];
+        break;
+      }
+    }
+
+    if (!student) {
+      alert("❌ यह मोबाइल नंबर Registered नहीं है");
+      return;
+    }
+
+    document.getElementById("studentName").textContent =
+      student.name || "Student";
+
+    document.getElementById("profileName").textContent =
+      student.name || "Student";
+
+    show("dashboard");
+
+  } catch (error) {
+
+    console.error(error);
+    alert("❌ Database से Login नहीं हो पाया");
+
+  }
+
+};
   console.log("Firebase Realtime Database Connected");window.registerStudent = async function () {
   const form = document.querySelector("#register");
   const inputs = form.querySelectorAll("input");
