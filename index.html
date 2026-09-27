@@ -87,7 +87,7 @@ input,select{width:100%;padding:14px;border:1px solid #d8e0ea;border-radius:12px
 <input placeholder="👤 Full Name / पूरा नाम"><input placeholder="📱 Mobile Number / मोबाइल नंबर"><input placeholder="✉️ Email (Optional)">
 <select><option>Select Class / Course</option><option>School</option><option>College</option><option>Competitive Exam</option></select>
 <select><option>Select Membership Plan</option><option>Monthly</option><option>3 Months</option><option>6 Months</option><option>1 Year</option></select>
-<input placeholder="🏠 Address / पता (Optional)"><button class="submit" onclick="alert('Registration form तैयार है। इसे database से जोड़ने पर data save होगा।')">Register</button>
+<input placeholder="🏠 Address / पता (Optional)"><button class="submit" onclick="window.registerStudent()">Register</button>
 <p style="text-align:center">Already have an account? <b onclick="show('login')">Login</b></p>
 </div></section>
 
@@ -236,7 +236,43 @@ if('serviceWorker' in navigator){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  console.log("Firebase Realtime Database Connected");
+  console.log("Firebase Realtime Database Connected");window.registerStudent = async function () {
+  const form = document.querySelector("#register");
+  const inputs = form.querySelectorAll("input");
+  const selects = form.querySelectorAll("select");
+
+  const name = inputs[0].value.trim();
+  const mobile = inputs[1].value.trim();
+  const email = inputs[2].value.trim();
+  const course = selects[0].value;
+  const membership = selects[1].value;
+  const address = inputs[3].value.trim();
+
+  if (!name || !mobile) {
+    alert("कृपया नाम और मोबाइल नंबर भरें।");
+    return;
+  }
+
+  try {
+    const studentRef = push(ref(db, "students"));
+
+    await set(studentRef, {
+      name: name,
+      mobile: mobile,
+      email: email,
+      course: course,
+      membership: membership,
+      address: address,
+      createdAt: new Date().toISOString()
+    });
+
+    alert("✅ Registration सफल हुआ। Student Database में Save हो गया।");
+
+  } catch (error) {
+    console.error(error);
+    alert("❌ Data Save नहीं हुआ। कृपया फिर कोशिश करें।");
+  }
+};
 </script>
 </body>
 </html>
