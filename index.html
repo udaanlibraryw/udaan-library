@@ -253,7 +253,6 @@ function addNotice(){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 window.login = async function () {
-
   const mobile = document.getElementById("loginId").value.trim();
 
   if (!mobile) {
@@ -262,11 +261,12 @@ window.login = async function () {
   }
 
   try {
+    alert("🔄 Login check हो रहा है...");
 
     const snapshot = await get(ref(db, "students"));
 
     if (!snapshot.exists()) {
-      alert("कोई Student Database में नहीं मिला");
+      alert("❌ Database में कोई Student नहीं मिला");
       return;
     }
 
@@ -274,7 +274,7 @@ window.login = async function () {
     let student = null;
 
     for (const id in students) {
-      if (String(students[id].mobile) === String(mobile)) {
+      if (String(students[id].mobile).trim() === String(mobile).trim()) {
         student = students[id];
         break;
       }
@@ -288,18 +288,17 @@ window.login = async function () {
     document.getElementById("studentName").textContent =
       student.name || "Student";
 
-    document.getElementById("profileName").textContent =
-      student.name || "Student";
+    const profileName = document.getElementById("profileName");
+    if (profileName) {
+      profileName.textContent = student.name || "Student";
+    }
 
     show("dashboard");
 
   } catch (error) {
-
-    console.error(error);
-    alert("❌ Database से Login नहीं हो पाया");
-
+    console.error("LOGIN ERROR:", error);
+    alert("❌ Database से Login नहीं हो पाया\n" + error.message);
   }
-
 };
   console.log("Firebase Realtime Database Connected");window.registerStudent = async function () {
   const form = document.querySelector("#register");
