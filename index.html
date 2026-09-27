@@ -154,7 +154,8 @@ input,select{width:100%;padding:14px;border:1px solid #d8e0ea;border-radius:12px
 <div class="back" onclick="show('admin')">← Admin</div><h2 class="title">✅ Mark Attendance</h2>
 <input placeholder="Student ID / Mobile">
 <select><option>Attendance</option><option>Present</option><option>Absent</option></select>
-<button class="submit" onclick="alert('Attendance demo में save हो गई।')">✅ Save Attendance</button>
+<button class="submit"
+onclick="window.saveAttendance()">✅ Save Attendance</button>
 </div></section>
 
 <section id="adminNotice" class="screen"><div class="card">
@@ -306,7 +307,78 @@ if('serviceWorker' in navigator){
     console.error(error);
     alert("❌ Fee Save नहीं हुई। कृपया फिर कोशिश करें");
   }
-};
-</script>
+};window.saveAttendance = async function () {
+
+  const form = document.querySelector("#adminAttendance");
+  const input = form.querySelector("input");
+  const select = form.querySelector("select");
+
+  const studentId = input.value.trim();
+  const status = select.value;
+
+  if (!studentId || status === "Attendance") {
+    alert("कृपया Student ID / Mobile और Attendance भरें");
+ return;
+      }
+
+      try {
+        const attendanceRef = push(ref(db, "attendance"));
+
+        await set(attendanceRef, {
+          studentId: studentId,
+          status: status,
+          date: new Date().toISOString()
+        });
+
+        alert("✅ Attendance Database में Save हो गई");
+
+        input.value = "";
+
+      } catch (error) {
+        console.error(error);
+        alert("❌ Attendance Save नहीं हुई। कृपया फिर कोशिश करें");
+      }
+    };
+
+
+    /* NOTICE SAVE */
+
+    window.addNotice = async function () {
+
+      const input = document.getElementById("noticeText");
+      const notice = input.value.trim();
+
+      if (!notice) {
+        alert("कृपया Notice लिखें");
+        return;
+      }
+
+      try {
+
+        const noticeRef = push(ref(db, "notices"));
+
+        await set(noticeRef, {
+          message: notice,
+          date: new Date().toISOString()
+        });
+
+        alert("📢 Notice Database में Save हो गया");
+
+        input.value = "";
+
+      } catch (error) {
+
+        console.error(error);
+        alert("❌ Notice Save नहीं हुआ। कृपया फिर कोशिश करें");
+
+      }
+
+    };
+
+
+    console.log("✅ Udaan Library Firebase Database Ready");
+
+  </script>
+
 </body>
-</html>
+</html>   
