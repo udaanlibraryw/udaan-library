@@ -147,7 +147,7 @@ input,select{width:100%;padding:14px;border:1px solid #d8e0ea;border-radius:12px
 <input placeholder="Student ID">
 <input type="number" placeholder="Fee Amount">
 <select><option>Payment Status</option><option>Paid</option><option>Due</option></select>
-<button class="submit" onclick="alert('Fee record demo में update हो गया।')">💾 Save Fee</button>
+<button class="submit" onclick="window.saveFee()">💾 Save Fee</button>
 </div></section>
 
 <section id="adminAttendance" class="screen"><div class="card">
@@ -271,6 +271,40 @@ if('serviceWorker' in navigator){
   } catch (error) {
     console.error(error);
     alert("❌ Data Save नहीं हुआ। कृपया फिर कोशिश करें।");
+  }
+};
+  window.saveFee = async function () {
+  const form = document.querySelector("#adminFee");
+  const inputs = form.querySelectorAll("input");
+  const selects = form.querySelectorAll("select");
+
+  const studentId = inputs[0].value.trim();
+  const amount = inputs[1].value.trim();
+  const status = selects[0].value;
+
+  if (!studentId || !amount) {
+    alert("कृपया Student ID और Fee Amount भरें");
+    return;
+  }
+
+  try {
+    const feeRef = push(ref(db, "fees"));
+
+    await set(feeRef, {
+      studentId: studentId,
+      amount: Number(amount),
+      status: status,
+      date: new Date().toISOString()
+    });
+
+    alert("✅ Fee Database में Save हो गई");
+
+    inputs[0].value = "";
+    inputs[1].value = "";
+
+  } catch (error) {
+    console.error(error);
+    alert("❌ Fee Save नहीं हुई। कृपया फिर कोशिश करें");
   }
 };
 </script>
