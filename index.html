@@ -2,686 +2,212 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0877ff">
-<title>Udaan Library</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0757a8">
 <link rel="manifest" href="manifest.json">
+<title>Udaan Library Study Point</title>
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f6fb;
-  color:#172033;
-  padding-bottom:75px
-}
-header{
-  background:linear-gradient(135deg,#0877ff,#174bb5);
-  color:white;
-  padding:28px 20px;
-  border-radius:0 0 35px 35px
-}
-header h1{margin:0;font-size:29px}
-.sub{font-size:18px;margin-top:8px;opacity:.9}
-.wrap{padding:22px 18px}
-.card{
-  background:white;
-  border-radius:20px;
-  padding:22px;
-  margin-bottom:18px;
-  box-shadow:0 5px 20px #00000012
-}
-h2{margin-top:0}
-input,select{
-  width:100%;
-  padding:14px;
-  margin:7px 0;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:16px;
-  background:white
-}
-button{
-  border:0;
-  border-radius:13px;
-  padding:14px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer
-}
-.btn{width:100%;color:white;margin-top:10px}
-.blue{background:#0877ff}
-.green{background:#16a34a}
-.orange{background:#f59e0b}
-.purple{background:#7c3aed}
-.red{background:#dc2626}
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px
-}
-.hidden{display:none!important}
-.row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:12px 0;
-  border-bottom:1px solid #eee
-}
-.badge{
-  padding:6px 10px;
-  border-radius:20px;
-  background:#e8f1ff;
-  color:#0877ff
-}
-.notice{
-  background:#fff7ed;
-  border-left:5px solid #f59e0b;
-  padding:15px;
-  border-radius:12px
-}
-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:white;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  box-shadow:0 -3px 15px #0002;
-  z-index:10
-}
-nav button{
-  background:white;
-  color:#333;
-  border-radius:0;
-  font-size:14px;
-  padding:10px 4px
-}
-nav span{display:block;font-size:22px;margin-bottom:3px}
-.center{text-align:center}
-.success{color:#15803d;font-weight:bold}
-.error{color:#dc2626;font-weight:bold}
-.stat{
-  padding:15px;
-  border-radius:15px;
-  color:white;
-  text-align:center
-}
-.stat b{font-size:25px;display:block}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#172033;font-family:Arial,"Noto Sans Devanagari",sans-serif;padding-bottom:82px}
+header{background:linear-gradient(135deg,#064d98,#0877ff);color:#fff;padding:18px 18px 24px;border-radius:0 0 30px 30px;position:sticky;top:0;z-index:10}
+.top{display:flex;align-items:center;justify-content:space-between}.menu,.bell{font-size:27px}.brand{font-weight:800;font-size:21px}.tag{font-size:13px;opacity:.9;margin-top:3px}
+.wrap{max-width:650px;margin:auto;padding:14px}
+.hero{background:#fff;border-radius:24px;padding:18px;margin-top:14px;box-shadow:0 5px 20px #0000000d}
+.logo{font-size:29px;font-weight:900;line-height:1.05;color:#0757a8;text-align:center}.logo b{color:#e21b2d}.motto{text-align:center;font-weight:600;color:#555;margin:8px 0 16px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}.info div{background:#f3f7fd;border-radius:14px;padding:11px 5px;text-align:center;font-size:12px}.ico{font-size:25px;display:block;margin-bottom:5px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:16px;padding:16px 8px;color:white;font-size:17px;font-weight:700;min-height:68px;box-shadow:0 4px 10px #0002}.blue{background:#0877ff}.green{background:#16a34a}.orange{background:#f59e0b}.purple{background:#7c3aed}.red{background:#ef3340}.cyan{background:#0891b2}
+.card{background:#fff;border-radius:22px;padding:18px;margin-top:14px;box-shadow:0 5px 20px #0000000d}.title{font-size:22px;font-weight:800;margin:0 0 14px}.notice{border-left:6px solid #f59e0b;background:#fff8ed;padding:14px;border-radius:14px}
+.screen{display:none}.screen.active{display:block}.back{color:#0757a8;font-weight:700;margin-bottom:12px;cursor:pointer}
+input,select{width:100%;padding:14px;border:1px solid #d8e0ea;border-radius:12px;margin:7px 0;font-size:15px;background:#fff}.submit{width:100%;border:0;background:#0877ff;color:#fff;padding:15px;border-radius:13px;font-size:17px;font-weight:700;margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{padding:13px 6px;border-radius:14px;text-align:center;background:#f2f6fb}.stat strong{display:block;font-size:20px;margin-top:5px}.greenText{color:#149447}.redText{color:#dc2638}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:8px 2px calc(8px + env(safe-area-inset-bottom));z-index:20}.nav{border:0;background:none;font-size:11px;color:#303846}.nav span{display:block;font-size:22px;margin-bottom:2px}.nav.active{color:#0757a8;font-weight:800}
+.profile{display:flex;gap:12px;align-items:center;background:#f2f7ff;padding:12px;border-radius:15px}.avatar{width:52px;height:52px;border-radius:50%;background:#dcecff;display:grid;place-items:center;font-size:28px}
+.small{font-size:13px;color:#64748b}.row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee}.badge{background:#16a34a;color:white;padding:5px 10px;border-radius:20px;font-size:12px}
+@media(max-width:390px){.logo{font-size:25px}.btn{font-size:15px}.info div{font-size:11px}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>📚 UDAAN LIBRARY</h1>
-  <div class="sub">Study Point • पढ़ाई ही बढ़ाना है</div>
+  <div class="top">
+    <div class="menu">☰</div>
+    <div><div class="brand">UDAAN LIBRARY</div><div class="tag">STUDY POINT • पढ़ाई ही बढ़ाना है</div></div>
+    <div class="bell">🔔</div>
+  </div>
 </header>
 
-<div class="wrap">
-
-<!-- HOME -->
-<section id="home">
-  <div class="card">
-    <h2>स्वागत है 👋</h2>
-    <p>शांत वातावरण में बेहतर पढ़ाई करें।</p>
-    <p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p>
-    <p>📞 8102054098</p>
+<main class="wrap">
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="logo">UDAAN<br><b>LIBRARY</b></div>
+    <div class="motto">पढ़ाई ही बढ़ाना है, सपनों की पहचान है</div>
+    <div class="info">
+      <div><span class="ico">🎓</span>शांत वातावरण</div>
+      <div><span class="ico">📶</span>High Speed Wi‑Fi</div>
+      <div><span class="ico">📹</span>CCTV सुरक्षा</div>
+    </div>
+    <div class="grid">
+      <button class="btn blue" onclick="show('login')">👤 Student Login →</button>
+      <button class="btn green" onclick="show('register')">📝 New Registration →</button>
+      <button class="btn red" onclick="show('fee')">💳 Fee Status</button>
+      <button class="btn orange" onclick="show('attendance')">📅 Attendance</button>
+      <button class="btn purple" onclick="show('notice')">🔔 Notice</button>
+      <button class="btn cyan" onclick="show('contact')">📞 Contact Us</button><button class="btn purple" onclick="show('adminLogin')">🔐 Admin</button>
+    </div>
   </div>
+  <div class="card"><h2 class="title">📢 Latest Notice</h2><div class="notice">Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।</div></div>
+</section>
 
-  <div class="grid">
-    <button class="btn blue" onclick="show('login')">👤 Student Login</button>
-    <button class="btn green" onclick="show('register')">📝 New Registration</button>
-    <button class="btn orange" onclick="show('fees')">💰 Fee Status</button>
-    <button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
-  </div>
-
+<section id="login" class="screen">
   <div class="card">
-    <h2>📢 Latest Notice</h2>
-    <div class="notice">
-      Udaan Library में आपका स्वागत है। नए नोटिस यहाँ दिखेंगे।
+    <div class="back" onclick="show('home')">← वापस</div><h2 class="title">👤 Student Login</h2>
+    <input id="loginId" placeholder="📱 Mobile Number / Student ID">
+    <input id="loginPass" type="password" placeholder="🔒 Password">
+    <label class="small"><input type="checkbox" style="width:auto;margin-right:6px"> Remember Me</label>
+    <button class="submit" onclick="login()">Login</button>
+    <p style="text-align:center">OR</p>
+    <button class="submit" style="background:#16a34a" onclick="alert('WhatsApp Login बाद में जोड़ा जा सकता है।')">🟢 Login with WhatsApp</button>
+    <p style="text-align:center">New Student? <b onclick="show('register')">Create Account</b></p>
+  </div>
+</section>
+
+<section id="dashboard" class="screen">
+  <div class="card">
+    <div class="profile"><div class="avatar">👨‍🎓</div><div><b id="studentName">Student</b><div class="small">Student ID: UL2025001<br>Seat No: A-12</div></div><span class="badge">Active</span></div>
+    <div class="stats" style="margin-top:12px"><div class="stat">Membership<strong>30 Nov 2026</strong></div><div class="stat">Today<strong class="greenText">Present</strong></div><div class="stat">Seat No<strong>A-12</strong></div></div>
+    <div class="grid" style="margin-top:14px">
+      <button class="btn red" onclick="show('fee')">💳 Fee Status</button><button class="btn blue" onclick="show('attendance')">📅 Attendance</button>
+      <button class="btn green" onclick="show('notice')">🔔 Notices</button><button class="btn orange">📚 Study Material</button>
+      <button class="btn purple">📋 Library Rules</button><button class="btn cyan" onclick="show('profile')">👤 Profile</button>
     </div>
   </div>
 </section>
 
+<section id="register" class="screen"><div class="card">
+<div class="back" onclick="show('home')">← वापस</div><h2 class="title">📝 Student Registration</h2>
+<input placeholder="👤 Full Name / पूरा नाम"><input placeholder="📱 Mobile Number / मोबाइल नंबर"><input placeholder="✉️ Email (Optional)">
+<select><option>Select Class / Course</option><option>School</option><option>College</option><option>Competitive Exam</option></select>
+<select><option>Select Membership Plan</option><option>Monthly</option><option>3 Months</option><option>6 Months</option><option>1 Year</option></select>
+<input placeholder="🏠 Address / पता (Optional)"><button class="submit" onclick="alert('Registration form तैयार है। इसे database से जोड़ने पर data save होगा।')">Register</button>
+<p style="text-align:center">Already have an account? <b onclick="show('login')">Login</b></p>
+</div></section>
 
-<!-- REGISTER -->
-<section id="register" class="hidden">
-  <div class="card">
-    <h2>📝 New Registration</h2>
+<section id="fee" class="screen"><div class="card"><div class="back" onclick="show('home')">← वापस</div><h2 class="title">💳 Fee Status</h2>
+<div class="stats"><div class="stat">Paid<strong class="greenText">₹1,200</strong></div><div class="stat">Due<strong class="redText">₹0</strong></div><div class="stat">Total<strong>₹1,200</strong></div></div>
+<div class="row"><span>September 2026</span><b>₹400 <span class="badge">Paid</span></b></div><div class="row"><span>August 2026</span><b>₹400 <span class="badge">Paid</span></b></div><div class="row"><span>July 2026</span><b>₹400 <span class="badge">Paid</span></b></div>
+<button class="submit" onclick="alert('Payment gateway बाद में जोड़ा जा सकता है।')">₹ Pay Fee (If Due)</button>
+</div></section>
 
-    <input id="rname" placeholder="पूरा नाम">
-    <input id="rmobile" placeholder="मोबाइल नंबर" type="tel">
-    <input id="rseat" placeholder="Seat Number" type="number">
+<section id="attendance" class="screen"><div class="card"><div class="back" onclick="show('home')">← वापस</div><h2 class="title">📅 Attendance</h2>
+<div class="stats"><div class="stat">Present<strong class="greenText">22</strong></div><div class="stat">Absent<strong class="redText">2</strong></div><div class="stat">Total<strong>24</strong></div></div>
+<div class="notice" style="margin-top:15px">🟢 Present &nbsp;&nbsp; 🔴 Absent &nbsp;&nbsp; ⚪ Not Marked</div>
+<p style="text-align:center;font-size:34px">1 2 3 4 5<br>6 🟢 7 🟢 8 🟢 9 🟢 10 🔴 11<br>12 13 🟢 14 🟢 15 🟢 16 🟢 17 🟢 18 🔴</p>
+</div></section>
 
-    <select id="rplan">
-      <option value="Monthly">Monthly</option>
-      <option value="3 Months">3 Months</option>
-      <option value="6 Months">6 Months</option>
-      <option value="Yearly">Yearly</option>
-    </select>
+<section id="notice" class="screen"><div class="card"><div class="back" onclick="show('home')">← वापस</div><h2 class="title">📢 Latest Notices</h2><div class="notice"><b>Library Notice</b><br>कल दिनांक 26 सितंबर से लाइब्रेरी सामान्य रूप से खुली रहेगी।<br><span class="small">25 Sep 2026</span></div></div></section>
 
-    <button class="btn green" onclick="register()">Register</button>
-    <p id="regmsg"></p>
-  </div>
-</section>
+<section id="contact" class="screen"><div class="card"><div class="back" onclick="show('home')">← वापस</div><h2 class="title">📞 Contact Us</h2><p>📍 Shekh Dhanwat, Pokhraira Road, Near Manauli Chowk, Muzaffarpur</p><p>📞 <a href="tel:8102054098">8102054098</a></p></div></section>
 
+<section id="profile" class="screen"><div class="card"><div class="back" onclick="show('dashboard')">← वापस</div><h2 class="title">👤 Profile</h2><div class="row"><span>Name</span><b id="profileName">Student</b></div><div class="row"><span>Student ID</span><b>UL2025001</b></div><div class="row"><span>Seat</span><b>A-12</b></div></div></section>
 
-<!-- LOGIN -->
-<section id="login" class="hidden">
-  <div class="card">
-    <h2>🔐 Student Login</h2>
+<section id="adminLogin" class="screen"><div class="card">
+<div class="back" onclick="show('home')">← वापस</div><h2 class="title">🔐 Admin Login</h2>
+<input id="adminPass" type="password" placeholder="🔑 Admin Password">
+<button class="submit" onclick="adminLogin()">Login as Admin</button>
+<p class="small" style="text-align:center">Demo password: <b>1234</b></p>
+</div></section>
 
-    <input id="loginid" placeholder="Student ID">
-    <input id="loginmobile" placeholder="Mobile Number" type="tel">
-
-    <button class="btn blue" onclick="login()">Login</button>
-    <p id="loginmsg"></p>
-
-    <hr>
-    <p>पहली बार आए हैं?</p>
-    <button class="btn green" onclick="show('register')">
-      📝 New Registration
-    </button>
-  </div>
-</section>
-
-
-<!-- DASHBOARD -->
-<section id="dashboard" class="hidden">
-
-  <div class="card">
-    <h2>👤 Student Dashboard</h2>
-
-    <div class="row">
-      <b>नाम</b>
-      <span id="dname"></span>
-    </div>
-
-    <div class="row">
-      <b>Student ID</b>
-      <span id="did" class="badge"></span>
-    </div>
-
-    <div class="row">
-      <b>Mobile</b>
-      <span id="dmobile"></span>
-    </div>
-
-    <div class="row">
-      <b>Seat No.</b>
-      <span id="dseat"></span>
-    </div>
-
-    <div class="row">
-      <b>Plan</b>
-      <span id="dplan"></span>
-    </div>
-  </div>
-
-  <div class="grid">
-    <div class="stat" style="background:#0877ff">
-      <b id="dashPresent">0</b>
-      Present
-    </div>
-
-    <div class="stat" style="background:#16a34a">
-      <b id="dashFee">Pending</b>
-      Fee
-    </div>
-  </div>
-
-  <div class="card">
-    <button class="btn blue" onclick="show('fees')">💰 Fee Status</button>
-    <button class="btn purple" onclick="show('attendance')">✅ Attendance</button>
-    <button class="btn red" onclick="logout()">🚪 Logout</button>
-  </div>
-</section>
-
-
-<!-- FEES -->
-<section id="fees" class="hidden">
-  <div class="card">
-    <h2>💰 Fee Status</h2>
-
-    <div class="row">
-      <b>Student</b>
-      <span id="fname">Login करें</span>
-    </div>
-
-    <div class="row">
-      <b>Monthly Fee</b>
-      <span>₹1,000</span>
-    </div>
-
-    <div class="row">
-      <b>Status</b>
-      <span id="feestatus" class="badge">Pending</span>
-    </div>
-
-    <button class="btn green" onclick="markFeePaid()">
-      ✅ Fee Paid
-    </button>
-  </div>
-</section>
-
-
-<!-- ATTENDANCE -->
-<section id="attendance" class="hidden">
-  <div class="card">
-    <h2>✅ Attendance</h2>
-
-    <div class="row">
-      <b>Total Days</b>
-      <span id="atotal">0</span>
-    </div>
-
-    <div class="row">
-      <b>Present</b>
-      <span id="apresent">0</span>
-    </div>
-
-    <div class="row">
-      <b>Absent</b>
-      <span id="aabsent">0</span>
-    </div>
-
-    <div class="row">
-      <b>Percentage</b>
-      <span id="apercent">0%</span>
-    </div>
-
-    <button class="btn green" onclick="markPresent()">
-      🟢 आज Present
-    </button>
-  </div>
-</section>
-<!-- ADMIN -->
-<section id="admin" class="hidden">
-  <div class="card">
-    <h2>🔐 Admin Panel</h2>
-
-    <p>Udaan Library Admin</p>
-
-<button class="btn blue" onclick="openStudentManagement()">👨‍🎓 Student Management</button>    <button class="btn green" onclick="openFeeManagement()">💰 Fee Management</button>
-<button class="btn orange" onclick="show('attendance')">✅ Attendance Management</button>
-    <button class="btn purple" onclick="openStudentList()">📋 Student List</button>
-    
-  </div>
-</section>
+<section id="admin" class="screen"><div class="card">
+<div class="back" onclick="show('home')">← Home</div>
+<h2 class="title">🛠️ Admin Dashboard</h2>
+<div class="stats">
+<div class="stat">Students<strong>25</strong></div>
+<div class="stat">Fees Due<strong class="redText">₹4,800</strong></div>
+<div class="stat">Present Today<strong class="greenText">22</strong></div>
 </div>
+<div class="grid" style="margin-top:14px">
+<button class="btn blue" onclick="show('adminStudents')">👨‍🎓 Students</button>
+<button class="btn green" onclick="show('adminFee')">💰 Manage Fee</button>
+<button class="btn orange" onclick="show('adminAttendance')">✅ Attendance</button>
+<button class="btn purple" onclick="show('adminNotice')">📢 Notices</button>
+</div>
+</div></section>
 
+<section id="adminStudents" class="screen"><div class="card">
+<div class="back" onclick="show('admin')">← Admin</div><h2 class="title">👨‍🎓 Student Management</h2>
+<input id="newStudent" placeholder="Student Name">
+<input placeholder="Mobile Number">
+<input placeholder="Seat Number">
+<select><option>Membership Plan</option><option>Monthly</option><option>3 Months</option><option>6 Months</option><option>1 Year</option></select>
+<button class="submit" onclick="addStudent()">➕ Add Student</button>
+<div id="studentList" style="margin-top:15px"></div>
+</div></section>
 
-<!-- BOTTOM NAV -->
-<nav>
-  <button onclick="show('home')">
-    <span>🏠</span>Home
-  </button>
+<section id="adminFee" class="screen"><div class="card">
+<div class="back" onclick="show('admin')">← Admin</div><h2 class="title">💰 Manage Fee</h2>
+<input placeholder="Student ID">
+<input type="number" placeholder="Fee Amount">
+<select><option>Payment Status</option><option>Paid</option><option>Due</option></select>
+<button class="submit" onclick="alert('Fee record demo में update हो गया।')">💾 Save Fee</button>
+</div></section>
 
-  <button onclick="openProfile()">
-    <span>👤</span>Profile
-  </button>
+<section id="adminAttendance" class="screen"><div class="card">
+<div class="back" onclick="show('admin')">← Admin</div><h2 class="title">✅ Mark Attendance</h2>
+<input placeholder="Student ID / Mobile">
+<select><option>Attendance</option><option>Present</option><option>Absent</option></select>
+<button class="submit" onclick="alert('Attendance demo में save हो गई।')">✅ Save Attendance</button>
+</div></section>
 
-  <button onclick="show('fees')">
-    <span>💰</span>Fee
-  </button>
+<section id="adminNotice" class="screen"><div class="card">
+<div class="back" onclick="show('admin')">← Admin</div><h2 class="title">📢 Manage Notice</h2>
+<input id="noticeText" placeholder="नया Notice लिखें">
+<button class="submit" onclick="addNotice()">📢 Publish Notice</button>
+<div id="noticeList" style="margin-top:15px"></div>
+</div></section>
+</main>
 
-  <button onclick="show('attendance')">
-    <span>✅</span>Attendance
-  </button><button onclick="show('admin')">
-  <span>🔐</span>Admin
-</button>
+<nav class="bottom">
+<button class="nav active" onclick="show('home')"><span>🏠</span>Home</button>
+<button class="nav" onclick="show('profile')"><span>👤</span>Profile</button>
+<button class="nav" onclick="show('fee')"><span>💰</span>Fee</button>
+<button class="nav" onclick="show('attendance')"><span>✅</span>Attendance</button>
 </nav>
 
-
 <script>
-
-const sections=[
-  "home",
-  "login",
-  "register",
-  "dashboard",
-  "fees",
-  "attendance",
-  "admin"
-];
-
-let student=JSON.parse(localStorage.getItem("udaanStudent") || "null");
-
-
 function show(id){
-
-  sections.forEach(x=>{
-    document.getElementById(x).classList.add("hidden");
-  });
-
-  document.getElementById(id).classList.remove("hidden");
-
-  window.scrollTo(0,0);
-
-  if(id==="dashboard") setDashboard();
-  if(id==="fees") setFee();
-  if(id==="attendance") setAttendance();
+ document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
 }
 
-
-function register(){
-
-  let name=document.getElementById("rname").value.trim();
-  let mobile=document.getElementById("rmobile").value.trim();
-  let seat=document.getElementById("rseat").value.trim();
-  let plan=document.getElementById("rplan").value;
-
-  if(!name || !mobile || !seat){
-
-    document.getElementById("regmsg").innerHTML=
-      '<span class="error">कृपया सभी जानकारी भरें।</span>';
-
-    return;
-  }
-
-  if(mobile.length!==10){
-
-    document.getElementById("regmsg").innerHTML=
-      '<span class="error">सही 10 अंकों का मोबाइल नंबर डालें।</span>';
-
-    return;
-  }
-
-  let id="UL"+Math.floor(10000+Math.random()*90000);
-
-  student={
-    id:id,
-    name:name,
-    mobile:mobile,
-    seat:seat,
-    plan:plan,
-    fee:"Pending",
-    attendance:{
-      total:0,
-      present:0,
-      lastDate:""
-    }
-  };
-
-  localStorage.setItem(
-    "udaanStudent",
-    JSON.stringify(student)
-  );
-
-  document.getElementById("regmsg").innerHTML=
-    '<span class="success">Registration सफल! Student ID: '+id+'</span>';
-
-  setTimeout(()=>{
-    show("dashboard");
-  },1000);
+function adminLogin(){
+ const p=document.getElementById('adminPass').value;
+ if(p==='1234') show('admin'); else alert('गलत Admin Password');
 }
-
+function addStudent(){
+ const n=document.getElementById('newStudent').value.trim();
+ if(!n){alert('Student Name भरें');return;}
+ const d=document.createElement('div'); d.className='row';
+ d.innerHTML='<span>👤 '+n+'</span><b class="greenText">Active</b>';
+ document.getElementById('studentList').appendChild(d);
+ document.getElementById('newStudent').value='';
+}
+function addNotice(){
+ const n=document.getElementById('noticeText').value.trim();
+ if(!n){alert('Notice लिखें');return;}
+ const d=document.createElement('div'); d.className='notice'; d.style.marginTop='8px'; d.textContent=n;
+ document.getElementById('noticeList').prepend(d);
+ document.getElementById('noticeText').value='';
+}
 
 function login(){
-
-  let id=document.getElementById("loginid").value.trim();
-  let mobile=document.getElementById("loginmobile").value.trim();
-
-  if(!student){
-
-    document.getElementById("loginmsg").innerHTML=
-      '<span class="error">पहले Registration करें।</span>';
-
-    return;
-  }
-
-  if(
-    id.toUpperCase()===student.id.toUpperCase() &&
-    mobile===student.mobile
-  ){
-
-    document.getElementById("loginmsg").innerHTML=
-      '<span class="success">Login सफल!</span>';
-
-    setTimeout(()=>{
-      show("dashboard");
-    },500);
-
-  }else{
-
-    document.getElementById("loginmsg").innerHTML=
-      '<span class="error">Student ID या Mobile गलत है।</span>';
-  }
+ const name=document.getElementById('loginId').value.trim()||'Student';
+ document.getElementById('studentName').textContent=name;
+ document.getElementById('profileName').textContent=name;
+ show('dashboard');
 }
-
-
-function setDashboard(){
-
-  if(!student){
-    show("login");
-    return;
-  }
-
-  document.getElementById("dname").innerText=student.name;
-  document.getElementById("did").innerText=student.id;
-  document.getElementById("dmobile").innerText=student.mobile;
-  document.getElementById("dseat").innerText=student.seat;
-  document.getElementById("dplan").innerText=student.plan;
-
-  document.getElementById("dashPresent").innerText=
-    student.attendance.present;
-
-  document.getElementById("dashFee").innerText=
-    student.fee;
-}
-
-
-function setFee(){
-
-  if(!student){
-
-    document.getElementById("fname").innerText="Login करें";
-    return;
-  }
-
-  document.getElementById("fname").innerText=student.name;
-  document.getElementById("feestatus").innerText=student.fee;
-}
-
-
-function markFeePaid(){
-
-  if(!student){
-
-    alert("पहले Student Login करें।");
-    show("login");
-    return;
-  }
-
-  student.fee="Paid";
-
-  save();
-
-  setFee();
-  setDashboard();
-
-  alert("Fee Paid Successfully ✅");
-}
-
-
-function markPresent(){
-
-  if(!student){
-
-    alert("पहले Student Login करें।");
-    show("login");
-    return;
-  }
-
-  let today=new Date().toISOString().slice(0,10);
-
-  if(student.attendance.lastDate===today){
-
-    alert("आज की Attendance पहले ही लग चुकी है।");
-    return;
-  }
-
-  student.attendance.total++;
-  student.attendance.present++;
-  student.attendance.lastDate=today;
-
-  save();
-
-  setAttendance();
-  setDashboard();
-
-  alert("आज की Attendance लग गई ✅");
-}
-
-
-function setAttendance(){
-
-  if(!student){
-
-    document.getElementById("atotal").innerText=0;
-    document.getElementById("apresent").innerText=0;
-    document.getElementById("aabsent").innerText=0;
-    document.getElementById("apercent").innerText="0%";
-
-    return;
-  }
-
-  let total=student.attendance.total;
-  let present=student.attendance.present;
-  let absent=Math.max(0,total-present);
-
-  let percent=total>0
-    ? Math.round((present/total)*100)
-    : 0;
-
-  document.getElementById("atotal").innerText=total;
-  document.getElementById("apresent").innerText=present;
-  document.getElementById("aabsent").innerText=absent;
-  document.getElementById("apercent").innerText=percent+"%";
-}
-
-
-function openProfile(){
-
-  if(student){
-    show("dashboard");
-  }else{
-    show("login");
-  }
-}
-
-
-function logout(){
-
-  show("home");
-
-  alert("Logout हो गया।");
-}
-
-
-function save(){
-
-  localStorage.setItem(
-    "udaanStudent",
-    JSON.stringify(student)
-  );
-}
-
-if(student){
-  setDashboard();
-}
-
-show("home");
-function openAdmin(){
-  let password=prompt("🔐 Admin Password डालें");
-
-  if(password==="123456"){
-    show("admin");
-  }else{
-    alert("❌ गलत Password");
-  }
-}
-
-
-function openStudentManagement(){
-if(!student){
-  alert("पहले Student Registration करें");
-  return;
-}
-
-alert("Student: "+student.name+
-"\nID: "+student.id+
-"\nMobile: "+student.mobile+
-"\nSeat: "+student.seat+
-"\nPlan: "+student.plan);
-}
-  
-
-function openFeeManagement(){
-
-  if(!student){
-    alert("पहले Student Registration करें");
-    return;
-  }
-
-  alert(
-    "💰 Fee Management\n\n"+
-    "Student: "+student.name+
-    "\nID: "+student.id+
-    "\nPlan: "+student.plan+
-    "\nFee Status: "+(student.feePaid ? "Paid ✅" : "Pending ⏳")
-  );
-
-}
-function openStudentList(){
-  if(!student){
-    alert("अभी कोई Student Registered नहीं है");
-    return;
-  }
-
-  alert(
-    "📋 Student List\n\n"+
-    "Name: "+student.name+
-    "\nID: "+student.id+
-    "\nMobile: "+student.mobile+
-    "\nSeat: "+student.seat+
-    "\nPlan: "+student.plan+
-    "\nFee: "+student.fee
-  );
+if('serviceWorker' in navigator){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('pwabuilder-sw.js').catch(()=>{}));
 }
 </script>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDcDKArpsj9ooMZUFysTYYz15p2PLgKL9E",
-  authDomain: "udaan-library.firebaseapp.com",
-  projectId: "udaan-library",
-  storageBucket: "udaan-library.firebasestorage.app",
-  messagingSenderId: "353170974204",
-  appId: "1:353170974204:web:caedc9462c1701eb407e79"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-</script>
-
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/udaan-library/pwabuilder-sw.js')
-      .then(registration => {
-        console.log('Service Worker registered:', registration);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-  });
-}
-</script></body>
+</body>
 </html>
