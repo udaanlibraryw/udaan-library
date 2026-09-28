@@ -210,13 +210,28 @@ onclick="window.saveAttendance()">✅ Save Attendance</button>
 <button class="nav" onclick="show('attendance')"><span>✅</span>Attendance</button>
 </nav>
 
-<script>
+<script type="module">
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  set,
+  push,
+  get,
+  onValue
+} from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
+
 function show(id){
+
  document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
  document.getElementById(id).classList.add('active');
  window.scrollTo(0,0);
 }
-
+window.show = show;
 function adminLogin(){
  const p=document.getElementById('adminPass').value;
  if(p==='1234') show('admin'); else alert('गलत Admin Password');
@@ -236,11 +251,7 @@ function addNotice(){
  document.getElementById('noticeList').prepend(d);
  document.getElementById('noticeText').value='';
 }
-
-
-    "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
-
-  const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDcCDKArpsj9ooMZUFysTYYz15p2PLgKL9E",
     authDomain: "udaan-library.firebaseapp.com",
     projectId: "udaan-library",
